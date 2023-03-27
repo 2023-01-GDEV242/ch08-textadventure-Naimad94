@@ -236,9 +236,7 @@ public class Game
      */
     public void lookAround()
     {
-        {
             System.out.println(currentRoom.getLongDescription());
-        }
     }
     
     /*
