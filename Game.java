@@ -28,7 +28,23 @@ public class Game
         createRooms();
         parser = new Parser();
     }
-
+    
+    /*
+     * Adding item to rooms.
+     */
+    
+    private void createItems()
+    {
+        Item key;
+        
+        //create items.
+        key = new Item ("Rusted Key", 1);
+        
+        
+        //initialise items
+        //mainEntrance.addItem("1",key);
+    }
+    
     /**
      * Create all the rooms and link their exits together.
      */
