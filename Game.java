@@ -19,12 +19,14 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    private Item items;
         
     /**
      * Create the game and initialise its internal map.
      */
     public Game() 
     {
+        createItems();
         createRooms();
         parser = new Parser();
     }
@@ -40,7 +42,6 @@ public class Game
         //create items.
         key = new Item ("Rusted Key", 1);
         
-        
         //initialise items
         //mainEntrance.addItem("1",key);
     }
@@ -50,8 +51,9 @@ public class Game
      */
     private void createRooms()
     {
-        Room mainEntrance, lowerLibrary, livingRoom, courtyard, dinningHall , kitchen, pool, danceHall, 
-        kitchenStorage, upperLibrary, upperMainEntrance, musicRoom;
+        Room mainEntrance, lowerLibrary, livingRoom, courtyard, dinningHall , kitchen, pool, gym, danceHall, 
+        kitchenStorage, upperLibrary, foodStorage, upperMainEntrance, upperCourtyard, knittingRoom, theatre, 
+        musicRoom;
       
         // create the rooms
         mainEntrance = new Room("Main entrance of the mansion");
@@ -61,29 +63,61 @@ public class Game
         dinningHall = new Room("In the dinnning hall");
         kitchen = new Room("In the kitchen");
         pool = new Room("In the indoor pool");
+        gym = new Room("You are in the gym");
         danceHall = new Room("In the dance room");
         kitchenStorage = new Room("In the kitchen Storage");
+        foodStorage = new Room("In the kitchen Storage");
         upperLibrary = new Room("In the upper library");
         upperMainEntrance = new Room("In the upper Main Entrance");
+        upperCourtyard = new Room("In the top floor of the courtyard");
+        knittingRoom = new Room("You are in the knitting room");
+        theatre = new Room("You are in the theatre room");
         musicRoom = new Room("In the music Room");
         
         // initialise room exits
         mainEntrance.setExit("west", lowerLibrary);
-        mainEntrance.setExit("up", upperMainEntrance);
         mainEntrance.setExit("north", courtyard);
         mainEntrance.setExit("east", livingRoom);
+        mainEntrance.setExit("up", upperMainEntrance);
         
         courtyard.setExit("north", pool);
         courtyard.setExit("east", danceHall);
         courtyard.setExit("south", mainEntrance);
         courtyard.setExit("west", dinningHall);
         
-        lowerLibrary.setExit("north", dinningHall);
-        lowerLibrary.setExit("up", upperLibrary);
-        lowerLibrary.setExit("east", mainEntrance);
+        pool.setExit("south", courtyard);
+        pool.setExit("east", gym);
+        
+        gym.setExit("west", pool);
+        
+        danceHall.setExit("south", livingRoom);
+        danceHall.setExit("west", courtyard);
         
         livingRoom.setExit("north", danceHall);
         livingRoom.setExit("west", mainEntrance);
+        
+        lowerLibrary.setExit("east", mainEntrance);
+        lowerLibrary.setExit("up", upperLibrary);
+        
+        dinningHall.setExit("north", kitchen);
+        dinningHall.setExit("east", courtyard);
+        
+        kitchen.setExit("North", foodStorage);
+        kitchen.setExit("south", dinningHall);
+        
+        foodStorage.setExit("south", kitchen);
+        
+        upperMainEntrance.setExit("north", upperCourtyard);
+        upperMainEntrance.setExit("east", knittingRoom);
+        upperMainEntrance.setExit("west", upperLibrary);
+        
+        upperCourtyard.setExit("east", theatre);
+        upperCourtyard.setExit("south", upperMainEntrance);
+        upperCourtyard.setExit("west", musicRoom);
+        
+        
+        
+        
 
         currentRoom = mainEntrance;  // start game outside
     }
@@ -252,7 +286,7 @@ public class Game
      */
     public void lookAround()
     {
-            System.out.println(currentRoom.getLongDescription());
+        System.out.println(currentRoom.getLongDescription());
     }
     
     /*
