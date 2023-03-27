@@ -11,6 +11,24 @@ public enum CommandWord
     // corresponding user interface string.
     GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?");
     
+    
+    /*
+     * validCommands = new HashMap<>();
+     * validCommands.put("go", CommandWord.GO);
+     * validCommands.put("help", CommandWord.HELP);
+     * validCommands.put("quit", CommandWord.QUIT);
+     * 
+     * Spanish Commands
+     * validCommands.put("ir", CommandWord.GO);
+     * validCommands.put("ayuda", CommandWord.HELP);
+     * validCommands.put("salir", CommandWord.QUIT);
+     * 
+     * Quechua Commands
+     * validCommands.put("riy", CommandWord.GO);
+     * validCommands.put("yanapay", CommandWord.HELP);
+     * validCommands.put("lluqsiy", CommandWord.QUIT);
+     */
+    
     // The command string.
     private String commandString;
     
