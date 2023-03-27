@@ -9,7 +9,7 @@ public enum CommandWord
 {
     // A value for each command word along with its
     // corresponding user interface string.
-    GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?");
+    GO("go, ir, riy"), QUIT("quit, salir, lluqsiy "), HELP("help, ayuda, yanapay"), UNKNOWN("?"), LOOK("look");
     
     
     /*
@@ -17,16 +17,19 @@ public enum CommandWord
      * validCommands.put("go", CommandWord.GO);
      * validCommands.put("help", CommandWord.HELP);
      * validCommands.put("quit", CommandWord.QUIT);
+     * vallidCommands.put("look", CommandWord.LOOK;
      * 
      * Spanish Commands
      * validCommands.put("ir", CommandWord.GO);
      * validCommands.put("ayuda", CommandWord.HELP);
      * validCommands.put("salir", CommandWord.QUIT);
+     * validCommands.put("mira", CommandWord.LOOK);
      * 
      * Quechua Commands
      * validCommands.put("riy", CommandWord.GO);
      * validCommands.put("yanapay", CommandWord.HELP);
      * validCommands.put("lluqsiy", CommandWord.QUIT);
+     * validCommands.put("qaway", CommandWord.LOOK);
      */
     
     // The command string.

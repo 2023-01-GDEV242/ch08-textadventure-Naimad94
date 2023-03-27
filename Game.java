@@ -34,8 +34,8 @@ public class Game
      */
     private void createRooms()
     {
-        Room mainEntrance, lowerLibrary, livingRoom, courtyard, dinningHall , 
-        kitchen, pool, danceRoom;
+        Room mainEntrance, lowerLibrary, livingRoom, courtyard, dinningHall , kitchen, pool, danceHall, 
+        kitchenStorage, upperLibrary, upperMainEntrance, musicRoom;
       
         // create the rooms
         mainEntrance = new Room("Main entrance of the mansion");
@@ -45,17 +45,29 @@ public class Game
         dinningHall = new Room("In the dinnning hall");
         kitchen = new Room("In the kitchen");
         pool = new Room("In the indoor pool");
-        danceRoom = new Room("In the dance room");
+        danceHall = new Room("In the dance room");
+        kitchenStorage = new Room("In the kitchen Storage");
+        upperLibrary = new Room("In the upper library");
+        upperMainEntrance = new Room("In the upper Main Entrance");
+        musicRoom = new Room("In the music Room");
         
         // initialise room exits
         mainEntrance.setExit("west", lowerLibrary);
+        mainEntrance.setExit("up", upperMainEntrance);
         mainEntrance.setExit("north", courtyard);
         mainEntrance.setExit("east", livingRoom);
         
         courtyard.setExit("north", pool);
-        courtyard.setExit("east", danceRoom);
+        courtyard.setExit("east", danceHall);
         courtyard.setExit("south", mainEntrance);
         courtyard.setExit("west", dinningHall);
+        
+        lowerLibrary.setExit("north", dinningHall);
+        lowerLibrary.setExit("up", upperLibrary);
+        lowerLibrary.setExit("east", mainEntrance);
+        
+        livingRoom.setExit("north", danceHall);
+        livingRoom.setExit("west", mainEntrance);
 
         currentRoom = mainEntrance;  // start game outside
     }
