@@ -34,37 +34,30 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theater, pub, lab, office;
-        //Room main entrance, lower library, living room, courtyard, dinning hall, kitchen
+        Room mainEntrance, lowerLibrary, livingRoom, courtyard, dinningHall , 
+        kitchen, pool, danceRoom;
       
         // create the rooms
-        outside = new Room("outside the main entrance of the university");
-        theater = new Room("in a lecture theater");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
-        //main entrance = new Room("Main entrance of the mansion");
-        //lower library = new Room("In a library");
-        //living room = new Room("In a living room");
-        //courtyard = new Room("Outside in a courtyard");
-        //dinning hall = new Room("In the dinnning hall");
-        //kitchen = new Room("In the 
+        mainEntrance = new Room("Main entrance of the mansion");
+        lowerLibrary = new Room("In a library");
+        livingRoom = new Room("In a living room");
+        courtyard = new Room("Outside in a courtyard");
+        dinningHall = new Room("In the dinnning hall");
+        kitchen = new Room("In the kitchen");
+        pool = new Room("In the indoor pool");
+        danceRoom = new Room("In the dance room");
         
         // initialise room exits
-        outside.setExit("east", theater);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        mainEntrance.setExit("west", lowerLibrary);
+        mainEntrance.setExit("north", courtyard);
+        mainEntrance.setExit("east", livingRoom);
+        
+        courtyard.setExit("north", pool);
+        courtyard.setExit("east", danceRoom);
+        courtyard.setExit("south", mainEntrance);
+        courtyard.setExit("west", dinningHall);
 
-        theater.setExit("west", outside);
-
-        pub.setExit("east", outside);
-
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
-
-        office.setExit("west", lab);
-
-        currentRoom = outside;  // start game outside
+        currentRoom = mainEntrance;  // start game outside
     }
 
     /**
@@ -145,6 +138,19 @@ public class Game
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
+        
+        /*
+         * "Estas perdido. Estas solo. Te deambulas"
+         * "alrededor de la mansion"
+         * 
+         * "tus palabras de mando son: "
+         * 
+         * "Chinkasqanam kachanki. Sapallan kanki. Purinki."
+         * "hatun wasi muyuriqpi"
+         * 
+         * "Kamachiyniyki simikunaqa: "
+         * 
+         */
     }
 
     /** 
@@ -157,6 +163,9 @@ public class Game
         {
             // if there is no second word, we don't know where to go...
             System.out.println("Go where?");
+            
+            //"Ir a donde?"
+            //"Mayman riy?"
             return;
         }
 
@@ -168,6 +177,9 @@ public class Game
         if (nextRoom == null) 
         {
             System.out.println("There is no door!");
+            
+            //"No hay puerta!"
+            //"Mana punku kanchu!"
         }
         else 
         {
@@ -186,6 +198,9 @@ public class Game
         if(command.hasSecondWord()) 
         {
             System.out.println("Quit what?");
+            
+            //"Salir de que?"
+            //"Saqiy imata?"
             return false;
         }
         else 

@@ -22,7 +22,7 @@ public class CommandWords
      */
     public CommandWords()
     {
-        validCommands = new HashMap<String, CommandWord>();
+        validCommands = new HashMap<>();
         for(CommandWord command : CommandWord.values()) 
         {
             if(command != CommandWord.UNKNOWN) 
