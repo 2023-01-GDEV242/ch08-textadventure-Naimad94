@@ -132,6 +132,16 @@ public class Game
             case QUIT:
                 wantToQuit = quit(command);
                 break;
+            
+            //Exercise 8.14 Added look command.    
+            case LOOK:
+                lookAround();
+                break;
+              
+            //Exercise 8.15 Added Eat command.    
+            case EAT:
+                eatFood();
+                break;
         }
         return wantToQuit;
     }
@@ -175,9 +185,9 @@ public class Game
         {
             // if there is no second word, we don't know where to go...
             System.out.println("Go where?");
+            System.out.println("Ir a donde?"); //Spanish translation.
+            System.out.println("Mayman riy?"); //Quechua translation.
             
-            //"Ir a donde?"
-            //"Mayman riy?"
             return;
         }
 
@@ -189,9 +199,8 @@ public class Game
         if (nextRoom == null) 
         {
             System.out.println("There is no door!");
-            
-            //"No hay puerta!"
-            //"Mana punku kanchu!"
+            System.out.println("No hay puerta!"); //Spanish translation.
+            System.out.println("Mana punku kanchu!"); //Quechua translation.
         }
         else 
         {
@@ -210,14 +219,34 @@ public class Game
         if(command.hasSecondWord()) 
         {
             System.out.println("Quit what?");
+            System.out.println("Salir de que?");
+            System.out.println("Saqiy imata?");
             
-            //"Salir de que?"
-            //"Saqiy imata?"
             return false;
         }
         else 
         {
             return true;  // signal that we want to quit
         }
+    }
+    
+    
+    /*
+     * "LOOK" was entered. Will give a brief description of what is in current area.
+     */
+    public void lookAround()
+    {
+        {
+            System.out.println("LOOKING...");
+        }
+    }
+    
+    /*
+     * "EAT" was entered. Will eat if food is available.
+     * Food would prob be a boolean statement.
+     */
+    public void eatFood()
+    {
+        System.out.println("Delicous");
     }
 }
