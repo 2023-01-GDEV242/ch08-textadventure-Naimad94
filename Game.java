@@ -53,7 +53,7 @@ public class Game
     {
         Room mainEntrance, lowerLibrary, livingRoom, courtyard, dinningHall , kitchen, pool, gym, danceHall, 
         kitchenStorage, upperLibrary, foodStorage, upperMainEntrance, upperCourtyard, knittingRoom, theatre, 
-        musicRoom;
+        musicRoom, observatory;
       
         // create the rooms
         mainEntrance = new Room("Main entrance of the mansion");
@@ -73,6 +73,7 @@ public class Game
         knittingRoom = new Room("You are in the knitting room");
         theatre = new Room("You are in the theatre room");
         musicRoom = new Room("In the music Room");
+        observatory = new Room("In the obervatory");
         
         // initialise room exits
         mainEntrance.setExit("west", lowerLibrary);
@@ -115,10 +116,20 @@ public class Game
         upperCourtyard.setExit("south", upperMainEntrance);
         upperCourtyard.setExit("west", musicRoom);
         
+        theatre.setExit("south", knittingRoom);
+        theatre.setExit("west", upperCourtyard);
         
+        knittingRoom.setExit("north", theatre);
+        knittingRoom.setExit("west", upperMainEntrance);
         
+        upperLibrary.setExit("north", musicRoom);
+        upperLibrary.setExit("east", upperMainEntrance);
         
-
+        musicRoom.setExit("north", observatory);
+        musicRoom.setExit("east", upperCourtyard);
+        musicRoom.setExit("south", upperLibrary);
+        
+        observatory.setExit("south", musicRoom);
         currentRoom = mainEntrance;  // start game outside
     }
 
