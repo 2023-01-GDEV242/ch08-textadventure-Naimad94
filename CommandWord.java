@@ -9,7 +9,8 @@ public enum CommandWord
 {
     // A value for each command word along with its
     // corresponding user interface string.
-    GO("go, ir, riy"), QUIT("quit, salir, lluqsiy "), HELP("help, ayuda, yanapay"), UNKNOWN("?"), LOOK("look");
+    GO("go, ir, riy"), QUIT("quit, salir, lluqsiy "), HELP("help, ayuda, yanapay"), UNKNOWN("?"), LOOK("look"),
+    EAT("eat, comer, mikuy");
     
     
     /*
