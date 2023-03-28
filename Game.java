@@ -21,6 +21,10 @@ public class Game
     private Room currentRoom;
     private Room lastRoom;
     
+    Room mainEntrance, lowerLibrary, livingRoom, courtyard, dinningHall , kitchen, pool, gym, danceHall, 
+    upperLibrary, foodStorage, upperMainEntrance, upperCourtyard, knittingRoom, theatre, musicRoom, observatory, 
+    bedRoom, bathroom;
+    
     //Main method for new game object.
     public static void main(String[]args)
     {
@@ -33,7 +37,7 @@ public class Game
      */
     public Game() 
     {
-        //createItems();
+        createItems();
         createRooms();
         parser = new Parser();
     }
@@ -47,18 +51,12 @@ public class Game
         key = new Item("A key that can unlock a door", 20);
         mainEntrance.addItem("1", key);
     }
+    
     /**
      * Create all the rooms and link their exits together.
      */
     private void createRooms()
     {
-        Room mainEntrance, lowerLibrary, livingRoom, courtyard, dinningHall , kitchen, pool, gym, danceHall, 
-        upperLibrary, foodStorage, upperMainEntrance, upperCourtyard, knittingRoom, theatre, musicRoom, 
-        observatory, bedRoom, bathroom;
-        
-        
-        
-      
         // create the rooms
         mainEntrance = new Room("In the Main Hall");
         lowerLibrary = new Room("In the Library");
