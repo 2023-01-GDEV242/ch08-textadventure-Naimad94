@@ -49,7 +49,8 @@ public class Game
     {   //add items to rooms
         Item key;
         key = new Item("A key that can unlock a door", 20);
-        mainEntrance.addItem("1", key);
+        
+        //lowerLibrary.addItem("1", key);
     }
     
     /**
@@ -127,6 +128,7 @@ public class Game
         
         upperLibrary.setExit("north", musicRoom);
         upperLibrary.setExit("east", upperMainEntrance);
+        upperLibrary.setExit("down", lowerLibrary);
         
         musicRoom.setExit("north", observatory);
         musicRoom.setExit("east", upperCourtyard);
@@ -238,9 +240,10 @@ public class Game
      */
     private void printHelp() 
     {
-        System.out.println("You are lost and a lone, you are looking to for the key to leave the mansion.");
+        System.out.println("You are lost and are trying to find a way out of the mansion. " + 
+        "Explore to see find a way out");
         System.out.println();
-        System.out.println("Your command words are:");
+        System.out.println("Your command words are: ");
         parser.showCommands();
         
         /*
