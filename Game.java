@@ -230,25 +230,26 @@ public class Game
                 break;
                 
             case TIME:
-                System.out.println("You have " + timer + "s left.);
+                System.out.println("You have " + timer + " s left.");
         }
-        return wantToQuit;
-    }
-    
-    //Keeps track of time- this is not my code i could not figure it out.
-    if(updateTimer)
-    {
-        timer.updateTimer();
-        if(timer.hasExpired())
+        
+        
+        //Keeps track of time- this is not my code i could not figure it out.
+        if(updateTimer)
         {
-            System.out.println("Time's up, Game Over.");
-            quitGame = true;
+            timer.updateTimer();
+            if(timer.hasExpired())
+            {
+                System.out.println("Time's up, Game Over.");
+                quitGame = true;
+            }
+            else if(timer.isLow())
+            {
+                System.out.println("Time is running out!");
+                System.out.println("You have " + timer + "s left.");
+            }
         }
-        else if(timer.isLow())
-        {
-            System.out.println("Time is running out!");
-            System.out.println("You have " + timer + "s left.");
-        }
+        return quitGame;
     }
     /**
      * Print out some help information.
@@ -347,15 +348,17 @@ public class Game
     {
         if(command.hasSecondWord()) 
         {
-            System.out.println("Quit what?");
-            System.out.println("Salir de que?");
-            System.out.println("Saqiy imata?");
-            
-            return false;
+            if(command.hasSecondWord())
+            {
+                System.out.println("Quit what?");
+                System.out.println("Salir de que?");
+                System.out.println("Saqiy imata?");
+                return false;
+            }
         }
         else 
         {
-            return true;  // signal that we want to quit
+            return true;  // signal that we want to quit.
         }
     }
     
