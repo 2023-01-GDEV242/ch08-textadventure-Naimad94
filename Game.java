@@ -284,13 +284,24 @@ public class Game
         }
     }
     
+    //Method will remember last room you were in.
+    private void markRoom(Room room)
+    {
+        lastRoom = currentRoom;
+        System.out.println("You left a trail behind, you can now use retrace your step.");
+    }
     
     //Exercise 8.23 Go back method.
     private boolean goBack()
     {
         if(lastRoom == null)
-        System.out.println("You forgot the last area you where at.");
-        return false;
+        {
+            System.out.println("You never left a trail. So you can't retrace step.");
+            return false;
+        }
+        lastRoom = currentRoom;
+        System.out.print("You went back.");
+        return true;
     }
     
     /** 
