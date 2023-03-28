@@ -159,7 +159,10 @@ public class Game
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
+        
         System.out.println("Thank you for playing.  Good bye.");
+        System.out.println("Gracias por jugar. Adios.");
+        System.out.println("riqsikuyki pukllasqaykimanta. Tupananchikkama");
     }
 
     /**
@@ -230,8 +233,7 @@ public class Game
      */
     private void printHelp() 
     {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
+        System.out.println("You are lost and a lone, you are looking to for the key to leave the mansion.");
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
@@ -289,6 +291,8 @@ public class Game
     {
         lastRoom = currentRoom;
         System.out.println("You left a trail behind, you can now use retrace your step.");
+        System.out.println("dejaste un rastro atras.");
+        System.out.println("huk nanta saqirqanki.");
     }
     
     //Exercise 8.23 Go back method.
@@ -296,11 +300,16 @@ public class Game
     {
         if(lastRoom == null)
         {
-            System.out.println("You never left a trail. So you can't retrace step.");
+            System.out.println("You never left a trail, so you can't retrace step.");
+            System.out.println("nunca dejaste un rastro, asi que no puedes volver sobre tus pasos.");
+            System.out.println("mana hayk'aqpas huk nanta saqerqankichu,chaymi mana kutiriyta atiwaqchu" + 
+            "purisqaykita");
             return false;
         }
         lastRoom = currentRoom;
-        System.out.print("You went back.");
+        System.out.println("You went back.");
+        System.out.println("regresaste");
+        System.out.println("kutirqanka");
         return true;
     }
     
