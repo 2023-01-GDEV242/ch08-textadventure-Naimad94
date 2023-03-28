@@ -206,6 +206,10 @@ public class Game
             case BACK:
                 goBack();
                 break;
+                
+            case MARK:
+                markRoom(currentRoom);
+                break;
 
             case QUIT:
                 wantToQuit = quit(command);
@@ -286,7 +290,7 @@ public class Game
         }
     }
     
-    //Method will remember last room you were in.
+    //8.26 Method will remember last room you were in.
     private void markRoom(Room room)
     {
         lastRoom = currentRoom;
