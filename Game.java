@@ -20,14 +20,20 @@ public class Game
     private Parser parser;
     private Room currentRoom;
     private Room lastRoom;
-    private Item items;
-        
+    
+    //Main method for new game object.
+    public static void main(String[]args)
+    {
+        Game game = new Game();
+        game.play();
+    }
+    
     /**
      * Create the game and initialise its internal map.
      */
     public Game() 
     {
-        createItems();
+        //createItems();
         createRooms();
         parser = new Parser();
     }
@@ -35,18 +41,12 @@ public class Game
     /*
      * Adding item to rooms.
      */
-    
     private void createItems()
-    {
+    {   //add items to rooms
         Item key;
-        
-        //create items.
-        key = new Item ("Rusted Key", 1);
-        
-        //initialise items
-        //mainEntrance.addItem("1",key);
+        key = new Item("A key that can unlock a door", 20);
+        mainEntrance.addItem("1", key);
     }
-    
     /**
      * Create all the rooms and link their exits together.
      */
@@ -55,6 +55,9 @@ public class Game
         Room mainEntrance, lowerLibrary, livingRoom, courtyard, dinningHall , kitchen, pool, gym, danceHall, 
         upperLibrary, foodStorage, upperMainEntrance, upperCourtyard, knittingRoom, theatre, musicRoom, 
         observatory, bedRoom, bathroom;
+        
+        
+        
       
         // create the rooms
         mainEntrance = new Room("In the Main Hall");
@@ -299,7 +302,7 @@ public class Game
         System.out.println("huk nanta saqirqanki.");
     }
     
-    //Exercise 8.23 Go back method.
+    //Exercise 8.23 Go back method. Can retrace step to the beginnig.
     private boolean goBack()
     {
         if(lastRoom == null)

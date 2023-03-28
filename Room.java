@@ -40,6 +40,11 @@ public class Room
         items.put(description, item);
     }
     
+    public void clear()
+    {
+        items.clear();
+    }
+    
     /**
      * Define an exit from this room.
      * @param direction The direction of the exit.
@@ -49,7 +54,7 @@ public class Room
     {
         exits.put(direction, neighbor);
     }
-
+    
     /**
      * @return The short description of the room
      * (the one that was defined in the constructor).
@@ -95,6 +100,22 @@ public class Room
     public Room getExit(String direction) 
     {
         return exits.get(direction);
+    }
+    
+    //
+    public String listItems() 
+    {
+       String returnString = new String("Code\tDescription\n");
+       Iterator iter = items.keySet().iterator();
+       Item item = null;
+       String code = null;
+       while (iter.hasNext()) 
+       {
+           code = (String)iter.next();
+           item = (Item)items.get(code);
+           returnString += code + '\t' + item.getDescription()  + '\n';
+       }
+       return returnString;
     }
 }
 
