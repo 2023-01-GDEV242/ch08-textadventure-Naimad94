@@ -29,6 +29,7 @@ public class Parser
         commands = new CommandWords();
         reader = new Scanner(System.in);
     }
+    
 
     /**
      * @return The next command from the user.

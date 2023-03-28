@@ -18,6 +18,7 @@
 public class Game 
 {
     private Parser parser;
+    private Timer timer;
     private Room currentRoom;
     private Room lastRoom;
     
@@ -37,8 +38,8 @@ public class Game
      */
     public Game() 
     {
-        createItems();
         createRooms();
+        timer = new Timer(60, -1, 5);
         parser = new Parser();
     }
     
@@ -198,11 +199,11 @@ public class Game
                 System.out.println("I don't know what you mean...");
                 break;
 
-            case HELP:
+            case HELP,AYUDA:
                 printHelp();
                 break;
 
-            case GO:
+            case GO,IR:
                 goRoom(command);
                 break;
                 
@@ -227,12 +228,28 @@ public class Game
             case EAT:
                 eatFood();
                 break;
+                
+            case TIME:
+                System.out.println("You have " + timer + "s left.);
         }
         return wantToQuit;
     }
-
-    // implementations of user commands:
-
+    
+    //Keeps track of time- this is not my code i could not figure it out.
+    if(updateTimer)
+    {
+        timer.updateTimer();
+        if(timer.hasExpired())
+        {
+            System.out.println("Time's up, Game Over.");
+            quitGame = true;
+        }
+        else if(timer.isLow())
+        {
+            System.out.println("Time is running out!");
+            System.out.println("You have " + timer + "s left.");
+        }
+    }
     /**
      * Print out some help information.
      * Here we print some stupid, cryptic message and a list of the 

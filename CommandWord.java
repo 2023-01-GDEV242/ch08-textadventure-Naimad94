@@ -11,8 +11,8 @@ public enum CommandWord
     // corresponding user interface string.
     //Exercise 8.14 and 8.15 added LOOk command and EAT command.
     
-    GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?"), LOOK("look"),
-    EAT("eat"), BACK("back"), MARK("mark");
+    GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?"), LOOK("look"),EAT("eat"), BACK("back"), 
+    MARK("mark"), IR("ir"), AYUDA("ayuda"), TIME("time");
     
     // The command string.
     private String commandString;
