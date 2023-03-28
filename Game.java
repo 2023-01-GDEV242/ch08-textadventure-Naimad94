@@ -19,6 +19,7 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    private Room lastRoom;
     private Item items;
         
     /**
@@ -52,26 +53,25 @@ public class Game
     private void createRooms()
     {
         Room mainEntrance, lowerLibrary, livingRoom, courtyard, dinningHall , kitchen, pool, gym, danceHall, 
-        kitchenStorage, upperLibrary, foodStorage, upperMainEntrance, upperCourtyard, knittingRoom, theatre, 
-        musicRoom, observatory, bedRoom, bathroom;
+        upperLibrary, foodStorage, upperMainEntrance, upperCourtyard, knittingRoom, theatre, musicRoom, 
+        observatory, bedRoom, bathroom;
       
         // create the rooms
-        mainEntrance = new Room("Main entrance of the mansion");
-        lowerLibrary = new Room("In a library");
-        livingRoom = new Room("In a living room");
-        courtyard = new Room("Outside in a courtyard");
-        dinningHall = new Room("In the dinnning hall");
+        mainEntrance = new Room("In the Main Hall");
+        lowerLibrary = new Room("In the Library");
+        livingRoom = new Room("In the Living room");
+        courtyard = new Room("In the Courtyard");
+        dinningHall = new Room("In the Dinnning Hall");
         kitchen = new Room("In the kitchen");
-        pool = new Room("In the indoor pool");
-        gym = new Room("You are in the gym");
-        danceHall = new Room("In the dance room");
-        kitchenStorage = new Room("In the kitchen Storage");
+        pool = new Room("In the Indoor Pool");
+        gym = new Room("Gymnasium");
+        danceHall = new Room("In the Dance Hall");
         foodStorage = new Room("In the kitchen Storage");
         upperLibrary = new Room("In the upper library");
-        upperMainEntrance = new Room("In the upper Main Entrance");
+        upperMainEntrance = new Room("In the upper Main Hall");
         upperCourtyard = new Room("In the top floor of the courtyard");
-        knittingRoom = new Room("You are in the knitting room");
-        theatre = new Room("You are in the theatre room");
+        knittingRoom = new Room("In the knitting room");
+        theatre = new Room("In the theatre room");
         musicRoom = new Room("In the music Room");
         observatory = new Room("In the obervatory");
         bedRoom = new Room("In the masterbedroom");
@@ -199,6 +199,10 @@ public class Game
             case GO:
                 goRoom(command);
                 break;
+                
+            case BACK:
+                goBack();
+                break;
 
             case QUIT:
                 wantToQuit = quit(command);
@@ -279,7 +283,16 @@ public class Game
             System.out.println(currentRoom.getLongDescription());
         }
     }
-
+    
+    
+    //Exercise 8.23 Go back method.
+    private boolean goBack()
+    {
+        if(lastRoom == null)
+        System.out.println("You forgot the last area you where at.");
+        return false;
+    }
+    
     /** 
      * "Quit" was entered. Check the rest of the command to see
      * whether we really quit the game.
